@@ -45,7 +45,10 @@
 
             {% if events %}
                 {% for event in events %}
-                    <div class="event">{{ event }}</div>
+                    <div class="event">
+    <strong>{{ event.time }}</strong><br>
+    {{ event.input }}
+</div>
                 {% endfor %}
             {% else %}
                 <p class="empty">No security events analyzed yet.</p>
