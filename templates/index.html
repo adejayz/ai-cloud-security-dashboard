@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cloud Security Operations Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="eyebrow">AWS CLOUD SECURITY</p>
+            <h1>AI Cloud Security Operations Dashboard</h1>
+            <p class="subtitle">
+                Analyze phishing messages, security logs, cloud configurations,
+                and AWS security questions.
+            </p>
+        </header>
+
+        <section class="card">
+            <h2>Security Analysis</h2>
+
+            <form method="POST">
+                <label for="security_input">Security input</label>
+                <textarea
+                    id="security_input"
+                    name="security_input"
+                    placeholder="Paste a suspicious email, security log, cloud configuration, or security question..."
+                    required
+                ></textarea>
+
+                <button type="submit">Analyze</button>
+            </form>
+        </section>
+
+        {% if result %}
+        <section class="card">
+            <h2>Analysis Result</h2>
+            <div class="result">{{ result }}</div>
+        </section>
+        {% endif %}
+
+        <section class="card">
+            <h2>Recent Security Events</h2>
+
+            {% if events %}
+                {% for event in events %}
+                    <div class="event">{{ event }}</div>
+                {% endfor %}
+            {% else %}
+                <p class="empty">No security events analyzed yet.</p>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>
